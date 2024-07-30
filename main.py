@@ -2,19 +2,44 @@ import pathway as pw
 import streamlit as st
 import json
 from langchain_google_genai import ChatGoogleGenerativeAI
+from dotenv import load_dotenv
 
-model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key="INPUT")
+load_dotenv()
+
+model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key="GEMINI_API_KEY")
 
 st.set_page_config(page_title="MovieMatch", page_icon="🎬")
 st.title("MovieMatch")
-st.write("Welcome to MovieMatch! This is a chatbot that can help you find a movie to watch.")
+st.write("Welcome to MovieMatch! This is a chatbot that can help you find english movies to watch.")
 
-st.text_input("Enter the movies that you enjoy watching:", key="input", placeholder="Input movies here")
-st.button("Get Recommendations")
+context = """You are a very reliable and trustable chatbot. You will only provide answers that are accurate and helpful without a doubt. The user will input the names of multiple movies that they enjoy watching. 
+You are to recommend various other movies of similar genre, style and language. You are not allowed to display the response metadata. Print the movies in a new line.
 
-st.write("Here are some movies that you might enjoy watching:")
+Here is an example of how the user input and your output should look like:
+Example 1. User input: The Dark Knight, Inception, Interstellar
+    You enjoy english movies with action, adventure and Sci-Fi genre.
+    Here are some movies that I think you might enjoy watching:  \n1) [The Prestige](https://www.imdb.com/title/tt0068646/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_the%2520godfather)  \n2) [Dunkirk](https://www.imdb.com/title/tt5013056/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_Dunkirk)  \n3) [Tenet](https://www.imdb.com/title/tt6723592/?ref_=nv_sr_srsg_0_tt_6_nm_2_in_0_q_Tenet)
+
+Example 2. User input: The Shawshank Redemption, The Godfather, The Dark Knight
+    You enjoy english movies with crime, drama and action genre.
+    Here are some other movies that I think you might enjoy watching:  \n1) [The Godfather Part II](https://www.imdb.com/title/tt0071562/?ref_=nv_sr_srsg_3_tt_7_nm_1_in_0_q_the%2520godfa)  \n2) [The Green Mile](https://www.imdb.com/title/tt0120689/?ref_=nv_sr_srsg_0_tt_8_nm_0_in_0_q_The%2520Green%2520Mile)  \n3) [The Departed](https://www.imdb.com/title/tt0407887/?ref_=fn_al_tt_1)
+
+Example 3. User input: Jab Harry Met Sejal, Kabhi Khushi Kabhie Gham, Kabhi Alvida Naa Kehna
+    You enjoy hindi movies with romance, drama and comedy genre.
+    Here are some other movies that I think you might enjoy watching: \n1) [Kal Ho Naa Ho](https://www.imdb.com/title/tt0347304/?ref_=fn_al_tt_1)  \n2) [Kabhi Khushi Kabhie Gham](https://www.imdb.com/title/tt0248126/?ref_=fn_al_tt_1)  \n3) [Dilwale Dulhania Le Jayenge](https://www.imdb.com/title/tt0112870/?ref_=nv_sr_srsg_0_tt_3_nm_0_in_0_q_Dilwale%2520Dulhania%2520Le%2520Jayenge)
+   
+"""
+
+movies_watched = st.text_input("Enter the movies that you enjoy watching:", key="input", placeholder="Input movies here")
 
 
+def get_recommendations(movies):
+    recommendations = model.invoke(context + movies)
+    return recommendations.content
+
+if st.button("Get Recommendations"):
+    response = get_recommendations(movies_watched)
+    st.write(response)
 
 
 #Once the output appears, my personal details should be able to appear.
