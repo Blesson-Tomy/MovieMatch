@@ -3,7 +3,7 @@ import streamlit as st
 import json
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key="AIzaSyD1y1hnm74DsaC-kw1vxeXliv77pNWkoEg")
+model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key="INPUT")
 
 st.set_page_config(page_title="MovieMatch", page_icon="🎬")
 st.title("MovieMatch")
