@@ -32,17 +32,42 @@ Example 3. User input: Jab Harry Met Sejal, Kabhi Khushi Kabhie Gham, Kabhi Alvi
 
 movies_watched = st.text_input("Enter the movies that you enjoy watching:", key="input", placeholder="Input movies here")
 
+Jsoncov = "please convert the given content into a json table with keys as numbers and each key has a Name, Year, Genre and Languages. Expand the body with valid information regarding the heading.  \n{  \n  \"movies\": [  \n    {  \n      \"name\": \"Input name of the movie\",  \n      \"year\": year of release,  \n      \"genre\": \"Genre of release of the movie\",  \n      \"language\": \"Language Medium of the movie\" \n    } You are to display the JSON output of each movie in a new line."
+
+class InputSchema(pw.Schema):
+    Name: str
+    Year: int
+    Genre: str
+    Language: str
 
 def get_recommendations(movies):
     recommendations = model.invoke(context + movies)
     return recommendations.content
 
+def get_json(prompt):
+    jsonrec = model.invoke(Jsoncov + prompt)
+    return jsonrec.content
+
 if st.button("Get Recommendations"):
     response = get_recommendations(movies_watched)
     st.write(response)
+    st.write(get_json(response))
+    
+    #try:
+    json_data = json.loads(get_json(response))
+    #except json.JSONDecodeError as e:
+    st.markdown(f"# TABLE VIEW :")
+    st.write(get_json(response))
+    if 'json_data' in locals():
+        op = pw.Table.from_dict(json.loads(get_json(response)), schema=InputSchema)
+        pw.io.jsonlines.write(op,"/mnt/data/newsdoc.jsonl")
+    pw.run()
+
+    st.write("This app is created as part of the Pathway AI Bootcamp conducted in collaboration with Mulearn and Pathway.com.")
+    st.link_button("Made with love by Blesson K Tomy", "https://www.profile.blessonktomy.tech")
 
 
-#Once the output appears, my personal details should be able to appear.
-st.write("This app is created as part of the Pathway AI Bootcamp conducted in collaboration with Mulearn and Pathway.com.")
-st.link_button("Made with love by Blesson K Tomy", "https://www.profile.blessonktomy.tech")
+
+
+
 
