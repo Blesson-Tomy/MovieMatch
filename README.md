@@ -2,20 +2,42 @@
 
 ### A movie recommendation system that reads your preferances of movies and recommends similar genre of movies for you. 
 
-#### A streamlit application for suggesting movies based on the genre, language and type of movies that you normally watch. The output is further converted into JSON and then further processed. This has been made possible by the integration of pathway. The large language model used is GEMINI.
+## Idea
+A streamlit application for suggesting movies based on the genre, language and type of movies that you normally watch. The output is further converted into JSON and then further processed. This has been made possible by the integration of pathway. The large language model used is Google's GEMINI.
 
 ## Features
-1) LLM provides updated knowledge of Movies and Series in major languages.
-2) LLM provides updated links to the rating and IMDB reference to the links.
-3) Json Conversion: The data output by the LLM is output in a JSON Format arranged by Key Value Pairs on Name, Year, Genre and Language
-4) Streamlit is used to provide a simple User Interface for the program.
+1) **User Interface:** Streamlit provides a simple and intuitive User Interface for the program.
+2) **Easy Access to Movie Info:** LLM provides links to the rating and IMDB reference to the links.
+3) **Multiple Language Support:** LLM provides updated knowledge of Movies and Series in major languages.
+4) **Json Conversion:** The data output by the LLM is output in a JSON Format arranged by Key Value Pairs on Name, Year, Genre and Language
 
 ## Demo
 
 ## Technologies Used
+**Frontend:** Streamlit
+**Data Processing:** Pathway
+**Programming Language:** Python
+**Large Language Model:** Gemini
 
 # Installation
+1. **Clone the Repository**
+    '''bash
+    git clone 
+    '''
 
+2. **Install the necessary dependencies**
+    '''bash
+    pip install -r requirements.txt
+    '''
+
+3. **Create a Google Gemini API Key**
+    Add the created link to the '.env' file
+
+
+4. **Run the Streamlit App on Localhost**
+    '''bash
+    streamlit run main.py
+    '''
 
 # Notes:
-This is part of a AI Bootcamp that is conducted by Mulearn and Pathway.com.
+This is part of a AI Bootcamp that is conducted by Mulearn and Pathway.com. I am truly grateful to have been a part of this and look forward to more such opportunities.
