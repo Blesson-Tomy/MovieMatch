@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key="AIzaSyD1y1hnm74DsaC-kw1vxeXliv77pNWkoEg")
+model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key="GEMINI_API_KEY")
 
 st.set_page_config(page_title="MovieMatch", page_icon="🎬")
 st.title("MovieMatch")
@@ -63,7 +63,7 @@ if st.button("Get Recommendations"):
 
         if 'json_data' in locals():
             op = pw.Table.from_dict(JsonAns, schema=InputSchema)
-            pw.io.jsonlines.write(op,"/mnt/data/newsdoc.jsonl")
+            pw.io.jsonlines.write(op,"newsdoc.jsonl")
             
         pw.run()
 
