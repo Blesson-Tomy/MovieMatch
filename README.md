@@ -15,8 +15,11 @@ A streamlit application for suggesting movies based on the genre, language and t
 
 ## Technologies Used
 **Frontend:** Streamlit
+
 **Data Processing:** Pathway
+
 **Programming Language:** Python
+
 **Large Language Model:** Gemini
 
 # Installation
@@ -38,6 +41,15 @@ A streamlit application for suggesting movies based on the genre, language and t
     '''bash
     streamlit run main.py
     '''
+
+# Instructions for use
+1. Follow the above instructions to accurately install the app
+
+2. Run the app using Streamlit as shown above
+
+3. Enter the names of the movies that you like to watch. Be as precise with the names as possible. Malayalam movies are not recommended due to the limited knowledge scope of the Gemini Model
+
+4. Click 'Get Recommendations' button to generate the response
 
 # Notes:
 This is part of a AI Bootcamp that is conducted by Mulearn and Pathway.com. I am truly grateful to have been a part of this and look forward to more such opportunities.
