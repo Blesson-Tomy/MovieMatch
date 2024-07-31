@@ -24,23 +24,24 @@ A streamlit application for suggesting movies based on the genre, language and t
 
 # Installation
 1. **Clone the Repository**
-    '''bash
-    git clone 
-    '''
+    
+    ```bash
+    git clone
+    ```
 
 2. **Install the necessary dependencies**
-    '''bash
-    pip install -r requirements.txt
-    '''
+    ```bash
+        pip install -r requirements.txt
+    ```
 
 3. **Create a Google Gemini API Key**
     Add the created link to the '.env' file
 
 
 4. **Run the Streamlit App on Localhost**
-    '''bash
+    ```bash
     streamlit run main.py
-    '''
+    ```
 
 # Instructions for use
 1. Follow the above instructions to accurately install the app
