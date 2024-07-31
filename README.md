@@ -35,7 +35,10 @@ A streamlit application for suggesting movies based on the genre, language and t
     ```
 
 3. **Create a Google Gemini API Key**
-    Add the created link to the '.env' file
+
+    1. Create a '.env' file
+    2. Add the created GEMINI_API_KEY to the '.env' file
+    3. Do not share the GEMINI_API_KEY with anyone
 
 
 4. **Run the Streamlit App on Localhost**
