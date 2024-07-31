@@ -13,7 +13,7 @@ A streamlit application for suggesting movies based on the genre, language and t
 
 ## Demo
 
-https://drive.google.com/file/d/1USraSIJLgYTS5KwKmOuMJL3yQnig9EfQ/view?usp=sharing
+[Link to Video](https://drive.google.com/file/d/1USraSIJLgYTS5KwKmOuMJL3yQnig9EfQ/view?usp=sharing)
 
 ## Technologies Used
 **Frontend:** Streamlit
