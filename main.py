@@ -6,10 +6,10 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-google_api_key = os.getenv("GOOGLE_API_KEY")
-model="gemini-pro"
+#google_api_key = os.getenv("GOOGLE_API_KEY")
+#model_name="gemini-pro"
 
-model = ChatGoogleGenerativeAI(f"{model},{google_api_key}")
+model = ChatGoogleGenerativeAI(model="gemini-pro",google_api_key="AIzaSyD1y1hnm74DsaC-kw1vxeXliv77pNWkoEg")
 
 st.set_page_config(page_title="MovieMatch", page_icon="🎬")
 st.title("MovieMatch")
