@@ -3,10 +3,13 @@ import streamlit as st
 import json
 from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
+import os
 
 load_dotenv()
+google_api_key = os.getenv("GOOGLE_API_KEY")
+model="gemini-pro"
 
-model = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key="GOOGLE_API_KEY")
+model = ChatGoogleGenerativeAI(f"{model},{google_api_key}")
 
 st.set_page_config(page_title="MovieMatch", page_icon="🎬")
 st.title("MovieMatch")
