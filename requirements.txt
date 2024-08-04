@@ -1,3 +1,4 @@
 streamlit
 langchain_google_genai 
 pathway
+python-dotenv
