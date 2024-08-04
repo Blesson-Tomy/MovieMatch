@@ -1,4 +1,3 @@
 streamlit
 langchain_google_genai 
 pathway
-json
